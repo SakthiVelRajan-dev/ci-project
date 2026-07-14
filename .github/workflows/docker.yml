@@ -47,3 +47,10 @@ jobs:
 
           docker push \
           ${{ secrets.DOCKER_USERNAME }}/ci-project:latest
+
+      - name: Deploy to digitalOcean
+        run: |
+          curl -X POST \
+          -H "Authorization: Bearer ${{ secrets.DIGITAL_OCEAN_ACCESS_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          "https://api.digitalocean.com/v2/apps/${{ secrets.DIGITAL_OCEAN_APP_ID }}/deployments"
