@@ -24,7 +24,10 @@ jobs:
           node-version: 20
           cache: pnpm
 
-      - run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        env:
+          ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: 'true'
+        run: pnpm install --frozen-lockfile
 
       - run: pnpm build
 
