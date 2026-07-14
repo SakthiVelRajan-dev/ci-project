@@ -43,5 +43,7 @@ jobs:
           -t ${{ secrets.DOCKER_USERNAME }}/ci-project:latest  .
 
           docker push \
-          ${{ secrets.DOCKER_USERNAME }}/ci-project:${{ github.sha }} \
+          ${{ secrets.DOCKER_USERNAME }}/ci-project:${{ github.sha }}
+
+          docker push \
           ${{ secrets.DOCKER_USERNAME }}/ci-project:latest
